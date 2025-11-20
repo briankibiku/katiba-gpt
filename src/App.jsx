@@ -73,6 +73,7 @@ const SendIcon = (props) => (
 const App = () => {
   // NOTE: This URL is set to your specified local backend endpoint
   const API_URL = 'http://localhost:8000/query';
+  const PROD_URL = 'https://katiba-rag.onrender.com/query'  ;
 
   const [inputQuery, setInputQuery] = useState("");
   const [response, setResponse] = useState(null);
@@ -99,7 +100,7 @@ const App = () => {
       
       for (let i = 0; i < MAX_RETRIES; i++) {
         try {
-          const res = await fetch(API_URL, {
+          const res = await fetch(PROD_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
